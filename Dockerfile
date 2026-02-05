@@ -27,8 +27,8 @@ RUN npm install -g clawdbot@2026.1.24-3 \
 
 # Install ClawdHub CLI for skill management
 # Note: undici is a peer dependency that clawdhub needs but doesn't declare
-RUN npm install -g undici clawdhub \
-    && clawdhub --version
+# Note: clawdhub --version exits with code 1 (CLI bug), so we just verify install succeeded
+RUN npm install -g undici clawdhub
 
 # Create moltbot directories (paths still use clawdbot until upstream renames)
 # Templates are stored in /root/.clawdbot-templates for initialization
