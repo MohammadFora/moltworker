@@ -25,6 +25,10 @@ RUN npm install -g pnpm
 RUN npm install -g clawdbot@2026.1.24-3 \
     && clawdbot --version
 
+# Install ClawdHub CLI for skill management
+RUN npm install -g clawdhub \
+    && clawdhub --version
+
 # Create moltbot directories (paths still use clawdbot until upstream renames)
 # Templates are stored in /root/.clawdbot-templates for initialization
 RUN mkdir -p /root/.clawdbot \
