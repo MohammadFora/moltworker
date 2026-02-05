@@ -105,15 +105,6 @@ if [ -d "$BACKUP_DIR/skills" ] && [ "$(ls -A $BACKUP_DIR/skills 2>/dev/null)" ];
     fi
 fi
 
-# If R2 has no backup, delete local config to force fresh start from template
-# This handles the case where R2 was cleared but DO local storage still has old config
-if [ ! -f "$BACKUP_DIR/.last-sync" ] && [ ! -f "$BACKUP_DIR/clawdbot/clawdbot.json" ]; then
-    if [ -f "$CONFIG_FILE" ]; then
-        echo "R2 is empty but local config exists - clearing local config for fresh start"
-        rm -f "$CONFIG_FILE"
-    fi
-fi
-
 # If config file still doesn't exist, create from template
 if [ ! -f "$CONFIG_FILE" ]; then
     echo "No existing config found, initializing from template..."
