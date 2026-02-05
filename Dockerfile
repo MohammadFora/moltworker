@@ -21,7 +21,7 @@ RUN ARCH="$(dpkg --print-architecture)" \
 RUN npm install -g pnpm
 
 # Install Java and signal-cli for Signal support
-ENV SIGNAL_CLI_VERSION=0.13.4
+ENV SIGNAL_CLI_VERSION=0.13.23
 RUN apt-get update && apt-get install -y default-jre-headless \
     && curl -fsSL "https://github.com/AsamK/signal-cli/releases/download/v${SIGNAL_CLI_VERSION}/signal-cli-${SIGNAL_CLI_VERSION}-Linux.tar.gz" -o /tmp/signal-cli.tar.gz \
     && tar -xzf /tmp/signal-cli.tar.gz -C /opt \
